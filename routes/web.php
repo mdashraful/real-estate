@@ -30,7 +30,7 @@ Route::middleware('guest')->group(function () {
 });
 
 // Authenticated User Routes
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'user'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     
     // User Dashboard
